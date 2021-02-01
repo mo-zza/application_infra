@@ -1,0 +1,6 @@
+- name: Send notification message via Slack
+  slack:
+    token: token
+    msg: 'instance AMI build completed'
+    channel: "#98_Infra_notification"
+    

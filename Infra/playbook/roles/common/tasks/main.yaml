@@ -1,0 +1,21 @@
+- name: Update Apt All Pakages
+  become: yes
+  apt: 
+    update_cache: yes
+    state: present
+
+- name: Upgrade Apt All Packages
+  become: yes
+  apt:
+    upgrade: dist
+
+- name: Autoremove Packages
+  become: yes
+  apt:
+    autoremove: yes
+
+- name: Install net tools
+  become: yes
+  apt:
+    name: net-tools
+    state: present

@@ -1,0 +1,10 @@
+---
+- name: Kebe test serv depoly
+  hosts: localhost
+  vars:
+    ansible_become: yes
+    ansible_become_method: sudo  
+    ansible_become_password: "password"
+  roles:
+  - zolboAPI
+  - slack

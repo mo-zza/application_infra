@@ -1,0 +1,16 @@
+- name: Install Python
+  apt:
+    name: python
+    state: latest
+    # update_cache: yes
+
+- name: Install API Packages
+  pip:
+    name:
+    - firebase-admin
+    - Flask
+    - Flask-Limiter
+    - Flask-Mail
+    - numpy
+    - pandas
+    - argon2-cffi

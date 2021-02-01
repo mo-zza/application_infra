@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zolbo-api
+  labels:
+    app: zolbo-api
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zolbo-api
+  template:
+    metadata:
+      labels:
+        app: zolbo-api
+    spec:
+      containers:
+      - name: zolbo-api
+        image: alchemilabs/zolbo-api:$LATEST
+        ports:
+        - containerPort: port
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "1Gi"
+            cpu: "500m"

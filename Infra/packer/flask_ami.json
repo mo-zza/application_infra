@@ -1,0 +1,32 @@
+{
+    "variables" : {
+        "ami_name": "packer {{isotime \"2006-01-02\"}}"
+    },
+    "builders" : [
+        {
+            "type" : "amazon-ebs",
+            "access_key" : "access key",
+            "secret_key" : "secret key",
+            "region": "us-east-1",
+            "source_ami" : "ami-0885b1f6bd170450c",
+            "vpc_id" : "vpc-2f6d0955",
+            "subnet_id" : "subnet-53773f34",
+            "security_group_id" : "sg-06ff6629841e8cd68",
+            "instance_type" : "t2.micro",
+            "ssh_interface" : "public_ip",
+            "ssh_username" : "ubuntu",
+            "ssh_keypair_name": "ssh_name",
+            "ssh_private_key_file": "/ssh/key/pwd",
+            "ami_name": "{{user `ami_name` | clean_ami_name}}",
+            "tags": {
+                "Name" : "tag name"
+            }
+        }
+    ],
+    "provisioners": [
+        {
+            "type" : "ansible",
+            "playbook_file" : "playbook/flask.yaml"
+        }
+    ]
+}

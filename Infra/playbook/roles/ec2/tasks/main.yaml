@@ -1,0 +1,15 @@
+  - name: Create EC2
+    amazon.aws.ec2:
+      aws_access_key: "access key"
+      aws_secret_key: "secret key"
+      key_name: aws-back-kamal
+      count: 1
+      instance_name: name
+      instance_type: t2.micro
+      image: ami-0885b1f6bd170450c
+      wait: yes
+      group: launch-wizard-3
+      monitoring: no
+      region: us-east-1
+      vpc_subnet_id: subnet-53773f34
+      assign_public_ip: yes
